@@ -47,6 +47,12 @@ public:
 	// @param num_particles Number of particles
 	ParticleFilter() : num_particles(0), is_initialized(false) {}
 
+	//Constuctor
+	ParticleFilter(int pnum_particles) {
+		num_particles = pnum_particles;
+		is_initialized = false;
+	}
+
 	// Destructor
 	~ParticleFilter() {}
 
@@ -114,6 +120,8 @@ public:
 	const bool initialized() const {
 		return is_initialized;
 	}
+
+	void printParticles();
 };
 
 

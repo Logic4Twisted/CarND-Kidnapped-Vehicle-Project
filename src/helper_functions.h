@@ -236,4 +236,16 @@ inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& o
 	return true;
 }
 
+inline double calc_prob(double x, double mean, double std) {
+	double pi = 3.14159265359;
+	return exp(-pow(x-mean, 2)/(2*pow(std, 2)))/(sqrt(2*pi)*std);
+}
+
+inline double normalize_angle(double angle) {
+	double pi = 3.14159265359;
+	while (angle > 2*pi) angle -= 2*pi;
+	while (angle < 0.0) angle += 2*pi;
+	return angle;
+}
+
 #endif /* HELPER_FUNCTIONS_H_ */
